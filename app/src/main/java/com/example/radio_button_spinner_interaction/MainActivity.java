@@ -1,7 +1,5 @@
 package com.example.radio_button_spinner_interaction;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,9 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 {"Tirana", "Sarande", "Permet"}
         };
 
-        // Populate the Spinner initially with no cities
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
-        citySpinner.setAdapter(spinnerAdapter);
+        // Add "No City" as the first item for the default case
+        final String[] defaultCityArray = {"No City"};
+        final ArrayAdapter<String> defaultCityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, defaultCityArray);
+        defaultCityAdapter.setDropDownViewResource(R.layout.custom_spinner_text_style);
+        // Populate the Spinner initially with the default adapter
+        citySpinner.setAdapter(defaultCityAdapter);
 
         // Set an OnCheckedChangeListener for the RadioGroup
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -53,9 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
                 int countryIndex = radioGroup.indexOfChild(radioButton);
 
-                // Populate the Spinner with cities for the selected country
-                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, cities[countryIndex]);
-                citySpinner.setAdapter(spinnerAdapter);
+                // Update the Spinner with cities for the selected country
+                ArrayAdapter<String> cityAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, cities[countryIndex]);
+                cityAdapter.setDropDownViewResource(R.layout.custom_spinner_text_style);
+                citySpinner.setAdapter(cityAdapter);
+
 
                 // Store the selected country
                 selectedCountry = countries[countryIndex];
@@ -72,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                selectedCity = " ";
+                selectedCity = "No City"; // Set a default text when no city is selected
             }
         });
 

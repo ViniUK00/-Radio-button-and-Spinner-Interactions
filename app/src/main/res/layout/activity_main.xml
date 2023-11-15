@@ -8,25 +8,24 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
+
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:textSize="25dp"
         android:text="Countries and Cities"
-        />
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/selectCountryTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:textSize="20dp"
         android:text="Select a country you will enjoy to visit soon:"
-        />
+        android:textSize="20dp" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -70,32 +69,29 @@
     <TextView
         android:id="@+id/selectCityTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="79dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:textSize="20dp"
         android:text="Select a country you will enjoy to visit soon:"
-        />
+        android:textSize="20dp" />
 
     <Spinner
         android:id="@+id/citySpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:popupTheme="@color/design_default_color_surface"
-        />
+        android:layout_height="88dp"
+        android:popupTheme="@color/design_default_color_surface" />
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        />
+        android:layout_height="77dp"
+        android:text="Submit" />
 
     <TextView
         android:id="@+id/selectedChoicesTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Selected Choices Will Appear Here"
-        />
+        android:textSize="20dp"
+        android:text="Selected Choices Will Appear Here" />
 </LinearLayout>
